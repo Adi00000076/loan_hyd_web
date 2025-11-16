@@ -1,21 +1,11 @@
-# TODO List for Django Authentication and Dashboard Setup
+# TODO: Add Offline Mode (PWA) to Django Chit Funds App
 
-## 1. Rename Home to Dashboard
+## Steps to Complete
 
-- [x] Rename `core/templates/home.html` to `dashboard.html`
-- [x] Update `core/views.py`: rename `home` function to `dashboard`, add `@login_required` decorator, change template to 'dashboard.html'
-- [x] Update `core/urls.py`: change path for home to dashboard at '/dashboard/', add new path for root that redirects based on auth
-
-## 2. Protect Dashboard and Set Redirects
-
-- [x] Add `LOGIN_URL = 'login'` and `LOGOUT_REDIRECT_URL = 'login'` to `jai_hanuman_chits/settings.py`
-- [x] Update root URL to use a new view that redirects to login or dashboard
-
-## 3. Update Templates and Navigation
-
-- [x] Update `core/templates/base.html`: change nav links from 'home' to 'dashboard'
-- [x] Update any other references
-
-## 4. Test Changes
-
-- [x] Run the server and verify login redirects to dashboard, logout works, and unauthenticated users see login
+- [x] Create `static/manifest.json` for PWA metadata (name, icons, start URL, etc.)
+- [x] Create `static/js/service-worker.js` to cache key resources (HTML, CSS, JS) for offline access
+- [x] Update `core/templates/base.html` to link the manifest and register the service worker
+- [x] Add PWA icons: `static/images/icon-192.png` and `static/images/icon-512.png` (placeholders; replace with actual icons)
+- [x] Run `python manage.py collectstatic` to collect static files
+- [x] Test the app in a browser to verify PWA installation and offline caching
+- [x] Confirm offline functionality works (e.g., app loads cached content without internet)
