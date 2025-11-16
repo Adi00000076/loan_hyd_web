@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Dashboard - Chit Funds System
+{% endblock %}
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="container mt-4">
+
+  <h2 class="text-center fw-bold mb-4">📊 Chit Funds Analytics Dashboard</h2>
+  <p class="text-center">Welcome, <strong>{{ user.username }}</strong></p>
+
+  <!-- STAT CARDS -->
+  <div class="row g-4 mt-3">
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 p-3 text-center">
+        <h6>Total Chit Groups</h6>
+        <h3 class="text-primary fw-bold">18</h3>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 p-3 text-center">
+        <h6>Active Subscribers</h6>
+        <h3 class="text-success fw-bold">420</h3>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 p-3 text-center">
+        <h6>Pending Instalments</h6>
+        <h3 class="text-danger fw-bold">75</h3>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card shadow-sm border-0 p-3 text-center">
+        <h6>Total Loans Disbursed</h6>
+        <h3 class="text-warning fw-bold">₹ 18,40,000</h3>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CHARTS -->
+  <div class="row mt-5">
+
+    <!-- BAR CHART: Monthly Collections -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center mb-3">Monthly Collections</h5>
+        <canvas id="collectionsChart"></canvas>
+      </div>
+    </div>
+
+    <!-- LINE CHART: Instalment Dues -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center mb-3">Instalment Dues Trend</h5>
+        <canvas id="dueTrendChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mt-4">
+
+    <!-- PIE CHART: Loan Disbursement Split -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center mb-3">Loan Disbursement Split</h5>
+        <canvas id="loanPieChart"></canvas>
+      </div>
+    </div>
+
+    <!-- DOUGHNUT CHART: Group Performance -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center mb-3">Group Performance Score</h5>
+        <canvas id="groupPerformanceChart"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- CHART SCRIPTS -->
+<script>
+
+  /* =============================
+        MONTHLY COLLECTIONS (BAR)
+  ============================== */
+  new Chart(document.getElementById('collectionsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Collections (₹)',
+        data: [120000, 140000, 135000, 150000, 160000, 175000],
+        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+      }]
+    }
+  });
+
+  /* ====================================
+        INSTALMENT DUES TREND (LINE)
+  ===================================== */
+  new Chart(document.getElementById('dueTrendChart'), {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Pending Instalments',
+        data: [40, 50, 55, 60, 70, 75],
+        borderColor: 'rgba(255, 99, 132, 1)',
+        backgroundColor: 'rgba(255, 99, 132, 0.3)',
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true
+      }]
+    }
+  });
+
+  /* ====================================
+        LOAN DISBURSEMENT SPLIT (PIE)
+  ===================================== */
+  new Chart(document.getElementById('loanPieChart'), {
+    type: 'pie',
+    data: {
+      labels: ['Business', 'Personal', 'Chit Advance', 'Others'],
+      datasets: [{
+        data: [45, 25, 20, 10],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.7)',
+          'rgba(255, 206, 86, 0.7)',
+          'rgba(255, 99, 132, 0.7)',
+          'rgba(75, 192, 192, 0.7)'
+        ]
+      }]
+    }
+  });
+
+  /* ====================================
+        GROUP PERFORMANCE (DOUGHNUT)
+  ===================================== */
+  new Chart(document.getElementById('groupPerformanceChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Excellent', 'Good', 'Average', 'Poor'],
+      datasets: [{
+        data: [40, 35, 20, 5],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.7)',
+          'rgba(153, 102, 255, 0.7)',
+          'rgba(255, 159, 64, 0.7)',
+          'rgba(255, 99, 132, 0.7)'
+        ]
+      }]
+    }
+  });
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,255 @@
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm py-2">
+  <div class="container-fluid">
+
+    <!-- LOGO -->
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/071/632/105/small/funds-balanced-design-graphic-shape-vector.jpg" 
+           alt="Logo" class="nav-logo">
+      <span class="fw-bold ms-2 brand-text">JAYA RANJAN CHIT FUNDS</span>
+    </a>
+
+    <!-- TOGGLER -->
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- MENU -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+
+        {% if user.is_authenticated %}
+
+        <!-- HOME -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+
+        <!-- DASHBOARD -->
+        <li class="nav-item">
+          <a class="nav-link custom-nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+        </li>
+
+        <!-- DROPDOWNS (Reusable Style) -->
+        <!-- Transactions -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Transactions
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Business Cash Book</a></li>
+            <li><a class="dropdown-item" href="#">Cash Book</a></li>
+            <li><a class="dropdown-item" href="#">Quick Cash Book</a></li>
+            <li><a class="dropdown-item" href="#">Delete Transaction</a></li>
+          </ul>
+        </li>
+
+        <!-- Master Info -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Master Info
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Personal Info</a></li>
+            <li><a class="dropdown-item" href="#">Loans</a></li>
+          </ul>
+        </li>
+
+        <!-- Partner Reports -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Partner Reports
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Instalments Dues</a></li>
+            <li><a class="dropdown-item" href="#">Group Business</a></li>
+            <li><a class="dropdown-item" href="#">Group Business Details</a></li>
+            <li><a class="dropdown-item" href="#">Performance</a></li>
+            <li><a class="dropdown-item" href="#">Business Report</a></li>
+            <li><a class="dropdown-item" href="#">Partner Settlement</a></li>
+            <li><a class="dropdown-item" href="#">Partner Information</a></li>
+            <li><a class="dropdown-item" href="#">Partner Loan Limit</a></li>
+          </ul>
+        </li>
+
+        <!-- Accounts -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Accounts
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Daily Book</a></li>
+            <li><a class="dropdown-item" href="#">Cash Book Ledger</a></li>
+            <li><a class="dropdown-item" href="#">Accounts Ledger</a></li>
+            <li><a class="dropdown-item" href="#">Accounts Master Ledger</a></li>
+            <li><a class="dropdown-item" href="#">User Collections Ledger</a></li>
+            <li><a class="dropdown-item" href="#">Receipts Ledger</a></li>
+          </ul>
+        </li>
+
+        <!-- Business -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Business
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Revenue Expense Statement</a></li>
+            <li><a class="dropdown-item" href="#">Balance Sheet</a></li>
+            <li><a class="dropdown-item" href="#">Business Share</a></li>
+            <li><a class="dropdown-item" href="#">Business Overview</a></li>
+            <li><a class="dropdown-item" href="#">Business Collections Report</a></li>
+          </ul>
+        </li>
+
+        <!-- Loans -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Loans
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Disbursed</a></li>
+            <li><a class="dropdown-item" href="#">Instalment Dues</a></li>
+            <li><a class="dropdown-item" href="#">Maturity</a></li>
+          </ul>
+        </li>
+
+        <!-- Customer -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
+            Customer
+          </a>
+          <ul class="dropdown-menu custom-dropdown animate slideIn">
+            <li><a class="dropdown-item" href="#">Customer Outstanding</a></li>
+            <li><a class="dropdown-item" href="#">Customer Dues</a></li>
+            <li><a class="dropdown-item" href="#">Customer Report</a></li>
+            <li><a class="dropdown-item" href="#">Customer Transactions</a></li>
+          </ul>
+        </li>
+
+        {% endif %}
+      </ul>
+
+      <!-- RIGHT SIDE -->
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="btn-modern-logout" href="{% url 'logout' %}">Logout</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="btn-modern-login" href="{% url 'login' %}">Login</a>
+        </li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<!-- CUSTOM NAVBAR STYLES -->
+<style>
+
+  /* Modern Navbar BG */
+  .custom-navbar {
+    background: #0b1f33 !important;
+  }
+
+  /* Logo */
+  .nav-logo {
+    height: 40px;
+    border-radius: 5px;
+  }
+
+  .brand-text {
+    font-size: 19px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Modern Nav Links */
+  .custom-nav-link {
+    position: relative;
+    padding: 10px 15px !important;
+    color: #d9e6ff !important;
+    font-weight: 500;
+    transition: 0.3s ease;
+  }
+
+  /* Hover glow */
+  .custom-nav-link:hover {
+    color: #00e5ff !important;
+    text-shadow: 0 0 6px rgba(0, 229, 255, 0.9);
+  }
+
+  /* Active link underline */
+  .custom-nav-link::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #00e5ff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s ease;
+  }
+
+  .custom-nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Modern Dropdown */
+  .custom-dropdown {
+    background: #0f2a44;
+    border: 1px solid #1c3c5c;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .dropdown-item {
+    color: #d9eaff !important;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: 0.25s ease;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(0, 229, 255, 0.15);
+    color: #00e5ff !important;
+    padding-left: 15px;
+  }
+
+  /* Login / Logout Stylish Buttons */
+  .btn-modern-login,
+  .btn-modern-logout {
+    background: linear-gradient(45deg, #00eaff, #00a4ff);
+    padding: 6px 16px;
+    color: #002233 !important;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s ease;
+  }
+  .btn-modern-login:hover,
+  .btn-modern-logout:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(45deg, #00faff, #009dff);
+  }
+
+  /* Navbar Toggler custom */
+  .custom-toggler {
+    border: none !important;
+  }
+
+  .custom-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Dropdown slide animation */
+  .dropdown-menu.animate {
+    animation-duration: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes slideIn {
+    from {transform: translateY(12px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+</style>

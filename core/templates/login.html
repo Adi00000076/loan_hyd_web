@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login - Jai Hanuman Chits{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+    background: url("https://images.unsplash.com/photo-1565512121872-3f4f5b2a2db5?auto=format&fit=crop&w=1600&q=80")
+      no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .login-wrapper {
+    backdrop-filter: blur(8px);
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .login-card {
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .side-image {
+    background-size: cover;
+    background-position: center;
+  }
+</style>
+
+<div class="container login-wrapper">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+      <div class="card login-card">
+
+        <div class="row g-0">
+
+          <!-- LEFT SIDE IMAGE (Chit Fund Related) -->
+          <div class="col-md-6 side-image"
+               style="background-image: url('https://ddimhr0jrp01a.cloudfront.net/academy/wp-content/uploads/2025/02/What-Is-Chit-Fund.jpg'); min-height: 450px;">
+          </div>
+
+          <!-- RIGHT SIDE LOGIN -->
+          <div class="col-md-6 p-4">
+
+            <h3 class="text-center mb-4">Login</h3>
+
+            <form method="post">
+              {% csrf_token %}
+
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+              </div>
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  Login
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
