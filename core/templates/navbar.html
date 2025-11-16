@@ -1,127 +1,296 @@
 <nav class="navbar navbar-expand-lg navbar-dark custom-navbar shadow-sm py-2">
   <div class="container-fluid">
-
     <!-- LOGO -->
     <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/071/632/105/small/funds-balanced-design-graphic-shape-vector.jpg" 
-           alt="Logo" class="nav-logo">
-      <span class="fw-bold ms-2 brand-text">JAYA RANJAN CHIT FUNDS</span>
+      <img
+        src="https://static.vecteezy.com/system/resources/thumbnails/071/632/105/small/funds-balanced-design-graphic-shape-vector.jpg"
+        alt="Logo"
+        class="nav-logo"
+      />
+      <span class="fw-bold ms-2 brand-text">JAYA RANJAN </span>
     </a>
 
     <!-- TOGGLER -->
-    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <!-- MENU -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
-
         {% if user.is_authenticated %}
 
         <!-- HOME -->
         <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="{% url 'home' %}">Home</a>
+          <a class="nav-link custom-nav-link" href="{% url 'home' %}"
+            ><i class="fas fa-home me-1"></i>Home</a
+          >
         </li>
 
         <!-- DASHBOARD -->
         <li class="nav-item">
-          <a class="nav-link custom-nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+          <a class="nav-link custom-nav-link" href="{% url 'dashboard' %}"
+            ><i class="fas fa-tachometer-alt me-1"></i>Dashboard</a
+          >
         </li>
 
         <!-- DROPDOWNS (Reusable Style) -->
         <!-- Transactions -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Transactions
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-exchange-alt me-1"></i>Transactions
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Business Cash Book</a></li>
-            <li><a class="dropdown-item" href="#">Cash Book</a></li>
-            <li><a class="dropdown-item" href="#">Quick Cash Book</a></li>
-            <li><a class="dropdown-item" href="#">Delete Transaction</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-book me-2"></i>Business Cash Book</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-cash-register me-2"></i>Cash Book</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-bolt me-2"></i>Quick Cash Book</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-trash me-2"></i>Delete Transaction</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Master Info -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Master Info
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-info-circle me-1"></i>Master Info
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Personal Info</a></li>
-            <li><a class="dropdown-item" href="#">Loans</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-user me-2"></i>Personal Info</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-hand-holding-usd me-2"></i>Loans</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Partner Reports -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Partner Reports
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-users me-1"></i>Partner Reports
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Instalments Dues</a></li>
-            <li><a class="dropdown-item" href="#">Group Business</a></li>
-            <li><a class="dropdown-item" href="#">Group Business Details</a></li>
-            <li><a class="dropdown-item" href="#">Performance</a></li>
-            <li><a class="dropdown-item" href="#">Business Report</a></li>
-            <li><a class="dropdown-item" href="#">Partner Settlement</a></li>
-            <li><a class="dropdown-item" href="#">Partner Information</a></li>
-            <li><a class="dropdown-item" href="#">Partner Loan Limit</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-calendar-check me-2"></i>Instalments Dues</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-building me-2"></i>Group Business</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-file-alt me-2"></i>Group Business Details</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-chart-line me-2"></i>Performance</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-chart-bar me-2"></i>Business Report</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-handshake me-2"></i>Partner Settlement</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-id-card me-2"></i>Partner Information</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-credit-card me-2"></i>Partner Loan Limit</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Accounts -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Accounts
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-calculator me-1"></i>Accounts
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Daily Book</a></li>
-            <li><a class="dropdown-item" href="#">Cash Book Ledger</a></li>
-            <li><a class="dropdown-item" href="#">Accounts Ledger</a></li>
-            <li><a class="dropdown-item" href="#">Accounts Master Ledger</a></li>
-            <li><a class="dropdown-item" href="#">User Collections Ledger</a></li>
-            <li><a class="dropdown-item" href="#">Receipts Ledger</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-calendar-day me-2"></i>Daily Book</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-book-open me-2"></i>Cash Book Ledger</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-list me-2"></i>Accounts Ledger</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-crown me-2"></i>Accounts Master Ledger</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-users-cog me-2"></i>User Collections Ledger</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-receipt me-2"></i>Receipts Ledger</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Business -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Business
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-briefcase me-1"></i>Business
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Revenue Expense Statement</a></li>
-            <li><a class="dropdown-item" href="#">Balance Sheet</a></li>
-            <li><a class="dropdown-item" href="#">Business Share</a></li>
-            <li><a class="dropdown-item" href="#">Business Overview</a></li>
-            <li><a class="dropdown-item" href="#">Business Collections Report</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-chart-pie me-2"></i>Revenue Expense
+                Statement</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-balance-scale me-2"></i>Balance Sheet</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-share me-2"></i>Business Share</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-eye me-2"></i>Business Overview</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-collection me-2"></i>Business Collections
+                Report</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Loans -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Loans
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-money-bill-wave me-1"></i>Loans
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Disbursed</a></li>
-            <li><a class="dropdown-item" href="#">Instalment Dues</a></li>
-            <li><a class="dropdown-item" href="#">Maturity</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-paper-plane me-2"></i>Disbursed</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-clock me-2"></i>Instalment Dues</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-calendar-times me-2"></i>Maturity</a
+              >
+            </li>
           </ul>
         </li>
 
         <!-- Customer -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle custom-nav-link" href="#" data-bs-toggle="dropdown">
-            Customer
+          <a
+            class="nav-link dropdown-toggle custom-nav-link"
+            href="#"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fas fa-user-friends me-1"></i>Customer
           </a>
           <ul class="dropdown-menu custom-dropdown animate slideIn">
-            <li><a class="dropdown-item" href="#">Customer Outstanding</a></li>
-            <li><a class="dropdown-item" href="#">Customer Dues</a></li>
-            <li><a class="dropdown-item" href="#">Customer Report</a></li>
-            <li><a class="dropdown-item" href="#">Customer Transactions</a></li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-exclamation-triangle me-2"></i>Customer
+                Outstanding</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-calendar-alt me-2"></i>Customer Dues</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-file-contract me-2"></i>Customer Report</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="#"
+                ><i class="fas fa-history me-2"></i>Customer Transactions</a
+              >
+            </li>
           </ul>
         </li>
 
@@ -132,22 +301,24 @@
       <ul class="navbar-nav">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="btn-modern-logout" href="{% url 'logout' %}">Logout</a>
+          <a class="btn-modern-logout" href="{% url 'logout' %}"
+            ><i class="fas fa-sign-out-alt me-1"></i>Logout</a
+          >
         </li>
         {% else %}
         <li class="nav-item">
-          <a class="btn-modern-login" href="{% url 'login' %}">Login</a>
+          <a class="btn-modern-login" href="{% url 'login' %}"
+            ><i class="fas fa-sign-in-alt me-1"></i>Login</a
+          >
         </li>
         {% endif %}
       </ul>
-
     </div>
   </div>
 </nav>
 
 <!-- CUSTOM NAVBAR STYLES -->
 <style>
-
   /* Modern Navbar BG */
   .custom-navbar {
     background: #0b1f33 !important;
@@ -249,7 +420,13 @@
   }
 
   @keyframes slideIn {
-    from {transform: translateY(12px); opacity: 0;}
-    to {transform: translateY(0); opacity: 1;}
+    from {
+      transform: translateY(12px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 </style>

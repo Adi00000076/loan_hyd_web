@@ -5,76 +5,188 @@
 
 {% block content %}
 
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-  body {
-    background: url("https://images.unsplash.com/photo-1565512121872-3f4f5b2a2db5?auto=format&fit=crop&w=1600&q=80")
-      no-repeat center center fixed;
-    background-size: cover;
-  }
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #eef7ff, #d9ecff, #c8f1ff);
+  background-size: 400% 400%;
+  animation: gradientFlow 10s ease infinite;
+}
 
-  .login-wrapper {
-    backdrop-filter: blur(8px);
-    padding-top: 60px;
-    padding-bottom: 60px;
-  }
+@keyframes gradientFlow {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
 
-  .login-card {
+  .login-container {
+    max-width: 950px;
+    margin: 60px auto;
+    background: #fff;
     border-radius: 22px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
     overflow: hidden;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   }
 
-  .side-image {
-    background-size: cover;
-    background-position: center;
+  /* LEFT BLUE PANEL */
+  .left-panel {
+    background: linear-gradient(180deg, #0d6efd, #1f86ff);
+    padding: 60px 40px;
+    color: white;
+    position: relative;
+    border-radius: 0 0 0 60px;
+  }
+
+  .left-panel h2 {
+    font-size: 32px;
+    font-weight: 700;
+  }
+
+  .left-panel p {
+    font-size: 15px;
+    opacity: 0.9;
+  }
+
+  .left-panel img {
+    width: 85%;
+    margin-top: 20px;
+  }
+
+  /* RIGHT SIGN-IN FORM */
+  .right-panel {
+    padding: 50px 40px;
+  }
+
+  .right-panel h3 {
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #333;
+  }
+
+  /* Inputs */
+  .input-group-custom {
+    background: #f1f3f5;
+    border-radius: 10px;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .input-group-custom i {
+    font-size: 17px;
+    margin-right: 10px;
+    color: #6c757d;
+  }
+
+  .input-group-custom input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+  }
+
+  /* Login Button */
+  .btn-login {
+    background: #0d6efd;
+    border: none;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+
+  .btn-login:hover {
+    background: #0b5cd6;
+    transform: translateY(-2px);
+  }
+
+  /* SOCIAL ICONS */
+  .social-icons i {
+    font-size: 20px;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .social-icons i:hover {
+    color: #0d6efd;
+    transform: scale(1.1);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .left-panel {
+      display: none;
+    }
+    .login-container {
+      border-radius: 16px;
+    }
+    .right-panel {
+      padding: 40px 30px;
+    }
   }
 </style>
 
-<div class="container login-wrapper">
-  <div class="row justify-content-center">
-    <div class="col-md-9">
-      <div class="card login-card">
 
-        <div class="row g-0">
+<!-- ==================== LOGIN UI ==================== -->
+<div class="login-container">
 
-          <!-- LEFT SIDE IMAGE (Chit Fund Related) -->
-          <div class="col-md-6 side-image"
-               style="background-image: url('https://ddimhr0jrp01a.cloudfront.net/academy/wp-content/uploads/2025/02/What-Is-Chit-Fund.jpg'); min-height: 450px;">
-          </div>
+  <div class="row g-0">
 
-          <!-- RIGHT SIDE LOGIN -->
-          <div class="col-md-6 p-4">
+    <!-- LEFT BLUE SECTION -->
+    <div class="col-md-6 left-panel">
+      <h2>New here?</h2>
+      <p>Join our digital financial platform and manage your chit funds smarter.</p>
 
-            <h3 class="text-center mb-4">Login</h3>
+      <img src="https://thatdigitaldude.com/wp-content/uploads/2023/03/Landing-Page.svg"
+           alt="Illustration">
+    </div>
 
-            <form method="post">
-              {% csrf_token %}
+    <!-- RIGHT LOGIN SECTION -->
+    <div class="col-md-6 right-panel">
 
-              <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-              </div>
+      <h3>Sign in</h3>
 
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-              </div>
+      <form method="post">
+        {% csrf_token %}
 
-              <div class="d-grid">
-                <button type="submit" class="btn btn-primary btn-lg">
-                  Login
-                </button>
-              </div>
-
-            </form>
-
-          </div>
-
+        <!-- Username -->
+        <div class="input-group-custom">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required>
         </div>
 
+        <!-- Password -->
+        <div class="input-group-custom">
+          <i class="fa-solid fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" class="btn-login">Login</button>
+
+      </form>
+
+      <p class="text-center mt-3 fw-semibold">Or sign in with social platforms</p>
+
+      <div class="social-icons text-center">
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-twitter"></i>
       </div>
+
     </div>
+
   </div>
+
 </div>
 
 {% endblock %}

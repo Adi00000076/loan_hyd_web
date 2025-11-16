@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,57 @@
       href="{% static 'bootstrap/css/bootstrap.min.css' %}"
       rel="stylesheet"
     />
-    {% block extra_head %}{% endblock %}
+    <!-- Font Awesome for WhatsApp icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+      .scroll-top-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+      }
+      .scroll-top-btn:hover {
+        background-color: #0056b3;
+      }
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #25d366;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .whatsapp-btn:hover {
+        background-color: #128c7e;
+      }
+
+      .scroll-top-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+
   </head>
   <body>
     <header>{% include 'navbar.html' %}</header>
@@ -19,8 +70,37 @@
 
     {% include 'footer.html' %}
 
+    <!-- WhatsApp Chat Button -->
+    <a href="https://wa.me/919398895448?text=Hello%20I%20need%20help" class="whatsapp-btn" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn">⬆</button>
+
     <!-- Bootstrap JS -->
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+      // Scroll to Top functionality
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+      // Show/hide button based on scroll position
+      window.addEventListener("scroll", function () {
+        if (window.pageYOffset > 100) {
+          scrollTopBtn.style.display = "block";
+        } else {
+          scrollTopBtn.style.display = "none";
+        }
+      });
+
+      // Scroll to top when button is clicked
+      scrollTopBtn.addEventListener("click", function () {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    </script>
     {% block extra_js %} {% endblock %}
   </body>
 </html>
